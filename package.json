@@ -1,0 +1,14 @@
+{
+  "name": "pixerify-labs",
+  "private": true,
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}

@@ -2,10 +2,12 @@
   "name": "pixerify-labs",
   "private": true,
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./ && cp CNAME dist/CNAME"
+    "dev": "parcel src/index.html src/products.html",
+    "build": "parcel build src/index.html src/products.html --public-url ./ && cp CNAME public/favicon.svg public/favicon.ico public/apple-touch-icon.png public/og.png public/robots.txt public/sitemap.xml dist/"
   },
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.16.4",
+    "@parcel/transformer-jsonld": "^2.16.4",
     "parcel": "^2.16.0"
   },
   "browserslist": [

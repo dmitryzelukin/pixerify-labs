@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+    try {
+      var theme = localStorage.getItem('theme')
+      if (theme === 'dark' || theme === 'light') document.documentElement.dataset.theme = theme
+    } catch (e) {}
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbf4f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1b1418" media="(prefers-color-scheme: dark)">
   <title>Pixerify Labs — Products with enjoyable experiences</title>
-  <meta name="description" content="We build products we own, and we stay with them. They should feel good every time you open them.">
+  <meta name="description" content="Pixerify Labs is a product studio in Latvia. We build products we own, and we stay with them.">
   <link rel="canonical" href="https://pixerify.com/">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./apple-touch-icon.png" sizes="180x180" type="image/png">
@@ -14,23 +20,41 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pixerify Labs">
   <meta property="og:title" content="Pixerify Labs — Products with enjoyable experiences">
-  <meta property="og:description" content="We build products we own, and we stay with them. They should feel good every time you open them.">
+  <meta property="og:locale" content="en">
+  <meta property="og:description" content="Pixerify Labs is a product studio in Latvia. We build products we own, and we stay with them.">
   <meta property="og:url" content="https://pixerify.com/">
   <meta property="og:image" content="https://pixerify.com/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pixerify Labs — Products with enjoyable experiences">
-  <meta name="twitter:description" content="We build products we own, and we stay with them. They should feel good every time you open them.">
+  <meta name="twitter:description" content="Pixerify Labs is a product studio in Latvia. We build products we own, and we stay with them.">
   <meta name="twitter:image" content="https://pixerify.com/og.png">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Pixerify Labs",
-      "url": "https://pixerify.com/",
-      "logo": "https://pixerify.com/apple-touch-icon.png",
-      "description": "We build products we own, and we stay with them. They should feel good every time you open them."
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://pixerify.com/#organization",
+          "name": "Pixerify Labs",
+          "url": "https://pixerify.com/",
+          "logo": "https://pixerify.com/apple-touch-icon.png",
+          "description": "Pixerify Labs is a product studio in Latvia. We build products we own, and we stay with them.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "LV"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://pixerify.com/#website",
+          "name": "Pixerify Labs",
+          "url": "https://pixerify.com/",
+          "description": "Pixerify Labs is a product studio in Latvia. We build products we own, and we stay with them.",
+          "publisher": { "@id": "https://pixerify.com/#organization" }
+        }
+      ]
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,6 +87,12 @@
       <nav aria-label="Primary">
         <a href="./products.html">Products</a>
         <a href="#studio">Studio</a>
+        <button type="button" class="theme" data-theme-toggle aria-pressed="false">
+          <svg class="icon when-light" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 2.8a8.6 8.6 0 1 0 7 12.4 6.7 6.7 0 0 1-7-12.4Z"/></svg>
+          <svg class="icon when-dark" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2"/><path d="M12 19.3v2.2"/><path d="m4.4 4.4 1.6 1.6"/><path d="m18 18 1.6 1.6"/><path d="M2.5 12h2.2"/><path d="M19.3 12h2.2"/><path d="m4.4 19.6 1.6-1.6"/><path d="m18 6 1.6-1.6"/></svg>
+          <span class="when-light">Dark theme</span>
+          <span class="when-dark">Light theme</span>
+        </button>
       </nav>
     </header>
   </div>
@@ -75,7 +105,7 @@
           <span class="feel">enjoyable</span>
           <span>experiences</span>
         </h1>
-        <p class="deck">We build products we own, and we stay with them. They should feel good every time you open them.</p>
+        <p class="deck">A product studio in Latvia. We build products we own, and we stay with them.</p>
         <div class="actions">
           <a class="button primary" href="./products.html">See the products</a>
           <a class="button quiet" href="#studio">How we work <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
@@ -150,7 +180,7 @@
       <span class="foot-end">
         <span class="ua">
           <span class="lv-flag" aria-hidden="true"></span>
-          Proudly made in LV
+          Proudly made in Latvia
         </span>
         <a class="ua" href="https://u24.gov.ua/" rel="noopener noreferrer">
           <span class="ua-flag" aria-hidden="true"></span>

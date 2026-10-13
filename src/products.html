@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+    try {
+      var theme = localStorage.getItem('theme')
+      if (theme === 'dark' || theme === 'light') document.documentElement.dataset.theme = theme
+    } catch (e) {}
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbf4f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1b1418" media="(prefers-color-scheme: dark)">
   <title>Products — Pixerify Labs</title>
-  <meta name="description" content="Small products we own and stay with. Each one should feel good every time you open it.">
+  <meta name="description" content="Products from Pixerify Labs, a product studio in Latvia. Each one should feel good every time you open it.">
   <link rel="canonical" href="https://pixerify.com/products.html">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./apple-touch-icon.png" sizes="180x180" type="image/png">
@@ -14,15 +20,67 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pixerify Labs">
   <meta property="og:title" content="Products — Pixerify Labs">
-  <meta property="og:description" content="Small products we own and stay with. Each one should feel good every time you open it.">
+  <meta property="og:locale" content="en">
+  <meta property="og:description" content="Products from Pixerify Labs, a product studio in Latvia. Each one should feel good every time you open it.">
   <meta property="og:url" content="https://pixerify.com/products.html">
   <meta property="og:image" content="https://pixerify.com/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Products — Pixerify Labs">
-  <meta name="twitter:description" content="Small products we own and stay with. Each one should feel good every time you open it.">
+  <meta name="twitter:description" content="Products from Pixerify Labs, a product studio in Latvia. Each one should feel good every time you open it.">
   <meta name="twitter:image" content="https://pixerify.com/og.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://pixerify.com/products.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Pixerify Labs",
+              "item": "https://pixerify.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Products",
+              "item": "https://pixerify.com/products.html"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://pixerify.com/products.html#page",
+          "url": "https://pixerify.com/products.html",
+          "name": "Products — Pixerify Labs",
+          "description": "Products from Pixerify Labs, a product studio in Latvia. Each one should feel good every time you open it.",
+          "isPartOf": { "@id": "https://pixerify.com/#website" },
+          "breadcrumb": { "@id": "https://pixerify.com/products.html#breadcrumb" },
+          "mainEntity": { "@id": "https://pixerify.com/products.html#list" }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://pixerify.com/products.html#list",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Morning Note", "description": "One line for the start of the day, then you put the phone down.", "url": "https://pixerify.com/products.html#morning-note" },
+            { "@type": "ListItem", "position": 2, "name": "Small Release", "description": "Ship a piece small enough to use, then tighten it the next morning.", "url": "https://pixerify.com/products.html#small-release" },
+            { "@type": "ListItem", "position": 3, "name": "Next Slice", "description": "The open work sits in one list. Nothing else is allowed in.", "url": "https://pixerify.com/products.html#next-slice" },
+            { "@type": "ListItem", "position": 4, "name": "Dayglass", "description": "Time cut into pieces short enough to finish before lunch.", "url": "https://pixerify.com/products.html#dayglass" },
+            { "@type": "ListItem", "position": 5, "name": "Soft List", "description": "A checklist that stays quiet. Done is enough.", "url": "https://pixerify.com/products.html#soft-list" },
+            { "@type": "ListItem", "position": 6, "name": "Room", "description": "The people who decide stay in the room. No extra seats.", "url": "https://pixerify.com/products.html#room" },
+            { "@type": "ListItem", "position": 7, "name": "Felt", "description": "A place to notice how the product feels before you call it done.", "url": "https://pixerify.com/products.html#felt" },
+            { "@type": "ListItem", "position": 8, "name": "Paper", "description": "Reading, kept in a short stack. One piece at a time.", "url": "https://pixerify.com/products.html#paper" },
+            { "@type": "ListItem", "position": 9, "name": "Kin", "description": "Notes for a small team. The thread stays with the people in it.", "url": "https://pixerify.com/products.html#kin" },
+            { "@type": "ListItem", "position": 10, "name": "Open", "description": "The one control that matters, large enough to find without looking.", "url": "https://pixerify.com/products.html#open" }
+          ]
+        }
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -48,6 +106,12 @@
       <nav aria-label="Primary">
         <a href="./products.html" aria-current="page">Products</a>
         <a href="./index.html#studio">Studio</a>
+        <button type="button" class="theme" data-theme-toggle aria-pressed="false">
+          <svg class="icon when-light" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 2.8a8.6 8.6 0 1 0 7 12.4 6.7 6.7 0 0 1-7-12.4Z"/></svg>
+          <svg class="icon when-dark" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 2.5v2.2"/><path d="M12 19.3v2.2"/><path d="m4.4 4.4 1.6 1.6"/><path d="m18 18 1.6 1.6"/><path d="M2.5 12h2.2"/><path d="M19.3 12h2.2"/><path d="m4.4 19.6 1.6-1.6"/><path d="m18 6 1.6-1.6"/></svg>
+          <span class="when-light">Dark theme</span>
+          <span class="when-dark">Light theme</span>
+        </button>
       </nav>
     </header>
   </div>
@@ -55,9 +119,9 @@
   <main id="main" class="page">
     <div class="wrap">
       <h1>Products</h1>
-      <p class="deck">Small things we own, and stay with.</p>
+      <p class="deck">Small things we own, and stay with. Made in Latvia.</p>
       <div class="catalog">
-        <article class="product">
+        <article class="product" id="morning-note">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><circle cx="160" cy="78" r="28" fill="#fffafb"/><circle cx="160" cy="78" r="12" fill="#8e445c"/><rect x="70" y="128" width="180" height="10" rx="5" fill="#2c2428"/><rect x="100" y="148" width="120" height="8" rx="4" fill="#fffafb"/></svg>
           </div>
@@ -68,7 +132,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="small-release">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><rect x="108" y="48" width="104" height="104" rx="22" fill="#fffafb"/><path d="M140 102l14 14 28-32" fill="none" stroke="#8e445c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
@@ -79,7 +143,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="next-slice">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><rect x="56" y="58" width="150" height="22" rx="11" fill="#2c2428"/><rect x="56" y="92" width="110" height="22" rx="11" fill="#8e445c"/><rect x="56" y="126" width="190" height="22" rx="11" fill="none" stroke="#2c2428" stroke-width="4" stroke-dasharray="8 8"/></svg>
           </div>
@@ -90,7 +154,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="dayglass">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><rect x="118" y="36" width="84" height="56" rx="28" fill="#2c2428"/><rect x="118" y="108" width="84" height="56" rx="28" fill="#fffafb"/><rect x="146" y="124" width="28" height="24" rx="12" fill="#8e445c"/></svg>
           </div>
@@ -101,7 +165,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="soft-list">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><circle cx="78" cy="70" r="10" fill="#8e445c"/><rect x="104" y="62" width="140" height="16" rx="8" fill="#2c2428"/><circle cx="78" cy="104" r="10" fill="#2c2428"/><rect x="104" y="96" width="110" height="16" rx="8" fill="#fffafb"/><circle cx="78" cy="138" r="10" fill="#fffafb"/><rect x="104" y="130" width="160" height="16" rx="8" fill="#8e445c"/></svg>
           </div>
@@ -112,7 +176,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="room">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><circle cx="118" cy="88" r="28" fill="#2c2428"/><circle cx="188" cy="96" r="34" fill="#fffafb"/><rect x="96" y="140" width="128" height="16" rx="8" fill="#8e445c"/></svg>
           </div>
@@ -123,7 +187,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="felt">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><circle cx="160" cy="100" r="52" fill="#fffafb"/><circle cx="142" cy="92" r="6" fill="#2c2428"/><circle cx="178" cy="92" r="6" fill="#2c2428"/><path d="M140 112c8 12 32 12 40 0" fill="none" stroke="#8e445c" stroke-width="6" stroke-linecap="round"/></svg>
           </div>
@@ -134,7 +198,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="paper">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><rect x="92" y="64" width="120" height="88" rx="10" fill="#8e445c"/><rect x="104" y="52" width="120" height="88" rx="10" fill="#2c2428"/><rect x="116" y="40" width="120" height="88" rx="10" fill="#fffafb"/><rect x="136" y="62" width="80" height="8" rx="4" fill="#f0c9d6"/><rect x="136" y="80" width="60" height="8" rx="4" fill="#8e445c"/></svg>
           </div>
@@ -145,7 +209,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="kin">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><circle cx="132" cy="100" r="40" fill="#2c2428"/><circle cx="188" cy="100" r="40" fill="#fffafb"/><circle cx="160" cy="100" r="16" fill="#8e445c"/></svg>
           </div>
@@ -156,7 +220,7 @@
             <a class="store" href="https://play.google.com/store/apps" rel="noopener noreferrer">Google Play <svg class="icon" aria-hidden="true"><use href="#i-store-play"/></svg></a>
           </div>
         </article>
-        <article class="product">
+        <article class="product" id="open">
           <div class="shot" aria-hidden="true">
             <svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#f0c9d6"/><rect x="70" y="78" width="180" height="48" rx="24" fill="#8e445c"/><circle cx="118" cy="102" r="8" fill="#fffafb"/><rect x="138" y="96" width="72" height="12" rx="6" fill="#fffafb"/></svg>
           </div>
@@ -185,7 +249,7 @@
       <span class="foot-end">
         <span class="ua">
           <span class="lv-flag" aria-hidden="true"></span>
-          Proudly made in LV
+          Proudly made in Latvia
         </span>
         <a class="ua" href="https://u24.gov.ua/" rel="noopener noreferrer">
           <span class="ua-flag" aria-hidden="true"></span>
